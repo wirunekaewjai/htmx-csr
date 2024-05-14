@@ -18,8 +18,4 @@ export function registerRoutes(router: HtmxRouter) {
   router.get("/albums", () => {
     return albums();
   });
-
-  router.get("*", () => {
-    return "404";
-  });
 }
