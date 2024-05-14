@@ -1,7 +1,7 @@
 import { html } from "@/components/html";
 import { navBar } from "@/components/nav-bar";
 
-export async function pagePost(id: number) {
+export function post(id: number) {
   return html({
     head: (
       <title>Page Post: {id}</title>

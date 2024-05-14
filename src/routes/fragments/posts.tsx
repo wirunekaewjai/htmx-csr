@@ -3,7 +3,7 @@ interface Post {
   title: string;
 }
 
-export async function listPosts() {
+export async function posts() {
   const url = "https://jsonplaceholder.typicode.com/posts";
   const res = await fetch(url);
 

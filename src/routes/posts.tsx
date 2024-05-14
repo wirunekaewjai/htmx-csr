@@ -1,19 +1,22 @@
 import { html } from "@/components/html";
 import { navBar } from "@/components/nav-bar";
 
-export async function pageAlbums() {
+export function posts() {
   return html({
     head: (
-      <title>Page Albums</title>
+      <title>Page Posts</title>
     ),
 
     body: (
       <>
-        {navBar("/albums")}
+        {navBar("/")}
+        <h1 class="p-2 font-bold text-xl">
+          List Posts
+        </h1>
         <div
           class="p-2"
-          hx-get="/@albums"
-          hx-trigger="load delay:1s"
+          hx-get="/@posts"
+          hx-trigger="load"
           hx-swap="outerHTML"
         >
           Loading...

@@ -1,4 +1,5 @@
 export function navBar(pathname: string) {
+  const baseClass = "p-2 hover:bg-white/10 rounded-full [&.active]:bg-white/20 [&.active]:pointer-events-none";
   const postsClass = pathname === "/" ? "active" : "";
   const albumsClass = pathname === "/albums" ? "active" : "";
 
@@ -11,13 +12,13 @@ export function navBar(pathname: string) {
         width="32"
       />
       <a
-        class={`${postsClass} p-2 hover:bg-white/10 rounded-full [&.active]:bg-white/20 [&.active]:pointer-events-none`.trim()}
+        class={`${postsClass} ${baseClass}`.trim()}
         href="/"
       >
         Posts
       </a>
       <a
-        class={`${albumsClass} p-2 hover:bg-white/10 rounded-full [&.active]:bg-white/20 [&.active]:pointer-events-none`.trim()}
+        class={`${albumsClass} ${baseClass}`.trim()}
         href="/albums"
       >
         Albums

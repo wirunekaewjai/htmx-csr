@@ -3,7 +3,7 @@ interface Album {
   title: string;
 }
 
-export async function listAlbums() {
+export async function albums() {
   const url = "https://jsonplaceholder.typicode.com/albums";
   const res = await fetch(url);
 

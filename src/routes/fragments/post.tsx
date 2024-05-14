@@ -4,7 +4,7 @@ interface Post {
   body: string;
 }
 
-export async function itemPost(id: number) {
+export async function post(id: number) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
 
   if (!res.ok) {
