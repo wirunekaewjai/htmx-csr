@@ -1,5 +1,6 @@
 import { html } from "@/components/html";
 import { navBar } from "@/components/nav-bar";
+import { suspense } from "@/components/suspense";
 
 export function posts() {
   return html({
@@ -10,17 +11,16 @@ export function posts() {
     body: (
       <>
         {navBar("/")}
+
         <h1 class="p-2 font-bold text-xl">
           List Posts
         </h1>
-        <div
-          class="p-2"
-          hx-get="/@posts"
-          hx-trigger="load"
-          hx-swap="outerHTML"
-        >
-          Loading...
-        </div>
+
+        {suspense("/@posts", (
+          <div class="p-2">
+            Loading . . .
+          </div>
+        ))}
       </>
     ),
   });

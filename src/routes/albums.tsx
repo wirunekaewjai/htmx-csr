@@ -1,5 +1,6 @@
 import { html } from "@/components/html";
 import { navBar } from "@/components/nav-bar";
+import { suspense } from "@/components/suspense";
 
 export function albums() {
   return html({
@@ -10,14 +11,11 @@ export function albums() {
     body: (
       <>
         {navBar("/albums")}
-        <div
-          class="p-2"
-          hx-get="/@albums"
-          hx-trigger="load delay:1s"
-          hx-swap="outerHTML"
-        >
-          Loading...
-        </div>
+        {suspense("/@albums", (
+          <div class="p-2">
+            Loading . . .
+          </div>
+        ))}
       </>
     ),
   });

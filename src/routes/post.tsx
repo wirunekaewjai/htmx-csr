@@ -1,5 +1,6 @@
 import { html } from "@/components/html";
 import { navBar } from "@/components/nav-bar";
+import { suspense } from "@/components/suspense";
 
 export function post(id: number) {
   return html({
@@ -10,14 +11,11 @@ export function post(id: number) {
     body: (
       <>
         {navBar(`/posts/${id}`)}
-        <div
-          class="p-2"
-          hx-get={`/@posts/${id}`}
-          hx-trigger="load"
-          hx-swap="outerHTML"
-        >
-          Loading...
-        </div>
+        {suspense(`/@posts/${id}`, (
+          <div class="p-2">
+            Loading . . .
+          </div>
+        ))}
       </>
     ),
   });

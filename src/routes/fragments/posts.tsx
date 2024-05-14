@@ -17,7 +17,7 @@ export async function posts() {
   const children = posts.map((post) => {
     return (
       <a
-        class="block p-1 hover:text-blue-400"
+        class="block p-2 hover:text-blue-400"
         href={`/posts/${post.id}`}
       >
         {post.title}
@@ -26,7 +26,7 @@ export async function posts() {
   });
 
   return (
-    <div class="p-1">
+    <div class="space-y-2 divide-y">
       {children}
     </div>
   );

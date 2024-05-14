@@ -16,16 +16,14 @@ export async function albums() {
   const albums: Album[] = await res.json();
   const children = albums.map((album) => {
     return (
-      <div
-        class="p-1"
-      >
+      <div class="p-2">
         {album.title}
       </div>
     );
   });
 
   return (
-    <div class="p-1">
+    <div class="space-y-2 divide-y">
       {children}
     </div>
   );
