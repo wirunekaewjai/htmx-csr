@@ -13,9 +13,9 @@ export function html(slots?: {
 
         {slots?.head}
 
-        <script defer="" src="https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js"></script>
-        <script defer="" src="https://unpkg.com/htmx.org@1.9.12/dist/ext/head-support.js"></script>
-        <script defer="" type="module" src="/assets/app.js"></script>
+        <script defer src="https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js"></script>
+        <script defer src="https://unpkg.com/htmx.org@1.9.12/dist/ext/head-support.js"></script>
+        <script defer type="module" src="/assets/app.js"></script>
       </head>
       <body hx-boost="true" hx-ext="head-support">
         {slots?.body}
