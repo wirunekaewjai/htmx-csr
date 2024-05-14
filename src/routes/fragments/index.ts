@@ -1,7 +1,7 @@
-import type { HtmxRouter } from "@/classes/htmx-router";
 import { albums } from "@/routes/fragments/albums";
 import { post } from "@/routes/fragments/post";
 import { posts } from "@/routes/fragments/posts";
+import type { HtmxRouter } from "@wirunekaewjai/htmx-router";
 
 export function registerFragments(router: HtmxRouter) {
   router.get("/@posts/:id", ({ params }) => {

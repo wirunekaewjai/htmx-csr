@@ -22,8 +22,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@wirunekaewjai/jsx": "github:wirunekaewjai/jsx#ec6fac5f507887cf3ff0f8f1e7c42910413e4def",
-    "itty-router": "^5.0.17",
-    "mime": "^4.0.3"
+    "@wirunekaewjai/htmx-router": "github:wirunekaewjai/htmx-router#96ee124aa7dbdb275370183014c305ead62b3d47",
+    "@wirunekaewjai/jsx": "github:wirunekaewjai/jsx#ec6fac5f507887cf3ff0f8f1e7c42910413e4def"
   }
 }
