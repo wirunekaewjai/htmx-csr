@@ -1,9 +1,11 @@
-import { createHtmxRouter } from "@/functions/create-htmx-router";
+import { HtmxRouter } from "@/classes/htmx-router";
 import { registerRoutes } from "@/routes";
 
-const router = createHtmxRouter();
+const router = new HtmxRouter();
 
 registerRoutes(router);
+
+router.intercept();
 
 // start routing (similar to ReactDOM.createRoot(...).render(...))
 document.body.innerHTML = (
