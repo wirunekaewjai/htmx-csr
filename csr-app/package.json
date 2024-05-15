@@ -7,8 +7,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev:build": "nodemon watch src -e ts,tsx --exec 'bun scripts/build-dev.ts'",
-    "dev": "concurrently 'bun run dev:build' 'bun start'",
+    "dev": "nodemon watch src -e ts,tsx --exec 'bun scripts/dev.ts'",
     "build": "NODE_ENV=production bun scripts/build.ts",
     "start": "cd dist && bunx serve -s -p 8080"
   },

@@ -1,7 +1,4 @@
-export function html(slots?: {
-  head?: string;
-  body?: string;
-}) {
+export function html() {
   return (
     <html lang="en">
       <head>
@@ -11,15 +8,12 @@ export function html(slots?: {
         <link rel="icon" sizes="any" type="image/x-icon" href="/favicon.ico" />
         <link rel="stylesheet" href="/assets/style.css" />
 
-        {slots?.head}
+        <title>HTMX + CSR</title>
 
         <script defer src="https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js"></script>
-        <script defer src="https://unpkg.com/htmx.org@1.9.12/dist/ext/head-support.js"></script>
         <script defer type="module" src="/assets/app.js"></script>
       </head>
-      <body hx-boost="true" hx-ext="head-support">
-        {slots?.body}
-      </body>
+      <body></body>
     </html>
   );
 }

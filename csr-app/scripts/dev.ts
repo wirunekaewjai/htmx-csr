@@ -24,3 +24,4 @@ await cp("public", "dist", {
 });
 
 await writeFile("dist/index.html", html());
+await $`bun start`;

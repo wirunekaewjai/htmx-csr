@@ -26,7 +26,10 @@ export async function posts() {
   });
 
   return (
-    <div class="space-y-2 divide-y">
+    <div
+      class="space-y-2 divide-y"
+      hx-boost="true"
+    >
       {children}
     </div>
   );
