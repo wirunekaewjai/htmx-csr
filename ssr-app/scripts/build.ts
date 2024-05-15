@@ -1,18 +1,30 @@
 import { $ } from "bun";
-import { mkdir, rm } from "node:fs/promises";
+import { cp, rm } from "node:fs/promises";
 
-await rm("public/assets", {
+await rm("dist", {
   force: true,
   recursive: true,
 });
 
-await mkdir("public/assets");
+await Bun.build({
+  entrypoints: [
+    "src/server/app.tsx",
+  ],
+  outdir: "dist",
+  target: "node",
+  minify: true,
+});
 
-await $`tailwindcss -i ./tailwind.css -o ./public/assets/style.css --minify`;
+await cp("public", "dist/public", {
+  force: true,
+  recursive: true,
+});
+
+await $`tailwindcss -i ./tailwind.css -o ./dist/public/assets/style.css --minify`;
 await Bun.build({
   entrypoints: [
     "src/client/app.tsx",
   ],
-  outdir: "public/assets",
+  outdir: "dist/public/assets",
   minify: true,
 });

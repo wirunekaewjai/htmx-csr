@@ -5,7 +5,9 @@
 .git
 .gitignore
 .vscode
+assets
 dist
 Dockerfile
 node_modules
+public/assets
 README.md

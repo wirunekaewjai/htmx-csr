@@ -10,7 +10,7 @@
     "dev:build": "nodemon watch src -e ts,tsx --exec 'bun scripts/build-dev.ts'",
     "dev": "concurrently 'bun run dev:build' 'bun --watch src/server/app.tsx'",
     "build": "NODE_ENV=production bun scripts/build.ts",
-    "start": "bun src/server/app.tsx"
+    "start": "cd dist && bun app.js"
   },
   "devDependencies": {
     "@types/bun": "latest",
