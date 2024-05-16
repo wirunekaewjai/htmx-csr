@@ -1,4 +1,4 @@
-try to intercept htmx request to handle client-side routing
+try to intercept htmx request to handle on client-side
 
 # demo
 https://htmx-csr.fly.dev
