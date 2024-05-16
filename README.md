@@ -7,9 +7,9 @@ https://htmx-csr.fly.dev
 - counter button will +/- on client-side and store value in querystring
 
 ## dev command
-bun install
-bun run dev
+- bun install
+- bun run dev
 
 ## release command
-bun run build
-bun start
+- bun run build
+- bun start
