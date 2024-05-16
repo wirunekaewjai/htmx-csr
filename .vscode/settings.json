@@ -9,7 +9,7 @@
     "./Cargo.toml"
   ],
   "[rust]": {
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": true
   },
   "[javascript]": {
     "editor.formatOnSave": true,

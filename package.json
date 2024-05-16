@@ -17,8 +17,6 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "htmx.org": "^1.9.12",
-    "itty-router": "^5.0.17",
-    "mime": "^4.0.3"
+    "htmx.org": "^1.9.12"
   }
 }
