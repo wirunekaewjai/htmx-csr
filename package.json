@@ -1,0 +1,24 @@
+{
+  "name": "htmx-csr",
+  "version": "0.0.1",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon watch src -e ts,tsx --exec 'bun src/bin/dev.ts'",
+    "build": "NODE_ENV=production bun src/bin/build.ts",
+    "start": "bun src/server/app.tsx"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "nodemon": "^3.1.0",
+    "tailwindcss": "^3.4.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "htmx.org": "^1.9.12",
+    "itty-router": "^5.0.17",
+    "mime": "^4.0.3"
+  }
+}

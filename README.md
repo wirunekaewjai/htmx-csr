@@ -1,10 +1,7 @@
 try to intercept htmx request to handle client-side routing
 
-# client-side rendering app
+# demo
 https://htmx-csr.fly.dev
 
-# client-side rendering app (javascript version)
-https://htmx-csr-js.fly.dev
-
-# hybrid app
-https://htmx-ssr.fly.dev
+- albums page is supported to render on client-side and server-side.
+- counter button will +/- on client-side and store value in querystring
