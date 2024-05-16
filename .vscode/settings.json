@@ -5,6 +5,12 @@
   "typescript.format.semicolons": "insert",
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.quoteStyle": "double",
+  "rust-analyzer.linkedProjects": [
+    "./Cargo.toml"
+  ],
+  "[rust]": {
+    "editor.formatOnSave": true,
+  },
   "[javascript]": {
     "editor.formatOnSave": true,
     "editor.insertSpaces": true,

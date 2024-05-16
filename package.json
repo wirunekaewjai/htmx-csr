@@ -4,9 +4,9 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "nodemon watch src -e ts,tsx --exec 'bun src/bin/dev.ts'",
+    "dev": "nodemon --watch src -e ts,tsx,rs --exec 'bun src/bin/dev.ts'",
     "build": "NODE_ENV=production bun src/bin/build.ts",
-    "start": "bun src/server/app.tsx"
+    "start": "cargo run --release"
   },
   "devDependencies": {
     "@types/bun": "latest",

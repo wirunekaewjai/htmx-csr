@@ -9,4 +9,4 @@ await Bun.build({
   minify: false,
 });
 
-await $`bun src/server/app.tsx`;
+await $`cargo run`;

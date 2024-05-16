@@ -10,7 +10,7 @@ export function albumsPage() {
       {navbar("/albums")}
 
       <h1 class="p-2 font-bold text-xl">
-        List Albums
+        List Albums (client-side rendering)
       </h1>
 
       {/* suspense */}
