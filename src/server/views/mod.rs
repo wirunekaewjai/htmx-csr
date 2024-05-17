@@ -1,4 +1,4 @@
-// AUTO GENERATED @ 2024-05-17T15:32:35.865Z
+// AUTO GENERATED @ 2024-05-17T16:46:47.982Z
 mod navbar;
 mod navbar_item;
 mod suspense;

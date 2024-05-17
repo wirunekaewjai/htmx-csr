@@ -1,3 +1,3 @@
-mod navbar;
+mod menu;
 
-pub use navbar::*;
+pub use menu::*;

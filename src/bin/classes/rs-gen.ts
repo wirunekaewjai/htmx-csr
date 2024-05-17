@@ -101,7 +101,7 @@ export class RsGen {
     console.log("write:", path);
   }
 
-  private parseFunction(fileName: string, input: string) {
+  private parseFunction(fnName: string, input: string) {
     const fnArgsMap: Map<string, string> = new Map();
     const fnArgsOrder: string[] = [];
 
@@ -129,11 +129,18 @@ export class RsGen {
       return "{" + name + "}";
     });
 
-    const fnArgs = fnArgsOrder.map((name) => `${name}: ${fnArgsMap.get(name)}`).join(", ");
-    const fnName = this.toLowerSnakeCase(fileName);
+    const fnProps = fnArgsOrder.sort().map((name) => `    pub ${name}: ${fnArgsMap.get(name)},`).join("\n");
+    const fnPropType = this.toPascalCase(fnName);
+    const fnPropsBindings = fnArgsOrder.map((name) => `    let ${name} = props.${name};`).join("\n");
 
     const output = [
-      `pub fn ${fnName}(${fnArgs}) -> String {`,
+      `pub struct ${fnPropType}Props {`,
+      fnProps,
+      `}`,
+      ``,
+      `pub fn ${fnName}(props: ${fnPropType}Props) -> String {`,
+      fnPropsBindings,
+      ``,
       `    return format!(r#"${fnOutput}"#);`,
       `}`,
     ];
@@ -147,7 +154,7 @@ export class RsGen {
         return "bool";
 
       case "string":
-        return "&str";
+        return "String";
 
       case "i8":
       case "i16":
@@ -166,5 +173,12 @@ export class RsGen {
 
   private toLowerSnakeCase(input: string) {
     return input.toLowerCase().replace(/[-]/g, "_");
+  }
+
+  private toPascalCase(input: string) {
+    return input
+      .split("_")
+      .map((x) => x[0].toUpperCase() + x.slice(1))
+      .join("");
   }
 }

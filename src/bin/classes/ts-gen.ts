@@ -104,7 +104,7 @@ export class TsGen {
   //   console.log(path);
   // }
 
-  private parseFunction(fileName: string, input: string) {
+  private parseFunction(fnName: string, input: string) {
     const fnArgsMap: Map<string, string> = new Map();
     const fnArgsOrder: string[] = [];
 
@@ -129,19 +129,22 @@ export class TsGen {
         fnArgsOrder.push(name);
       }
 
-      return "${" + name + "}";
+      return "${props." + name + "}";
     });
 
-    const fnArgs = fnArgsOrder.map((name) => `${name}: ${fnArgsMap.get(name)}`).join(", ");
-    const fnName = this.toLowerSnakeCase(fileName);
-
-    const output = [
-      `export function ${fnName}(${fnArgs}) {`,
+    const fnProps = fnArgsOrder.sort().map((name) => `  ${name}: ${fnArgsMap.get(name)};`).join("\n");
+    const fnPropType = this.toPascalCase(fnName);
+    const fnCode = [
+      `export interface ${fnPropType}Props {`,
+      fnProps,
+      `}`,
+      ``,
+      `export function ${fnName}(props: ${fnPropType}Props) {`,
       `  return \`${fnOutput}\`;`,
       `}`,
     ];
 
-    return output.join("\n");
+    return fnCode.join("\n");
   }
 
   private parseType(input: string) {
@@ -171,5 +174,12 @@ export class TsGen {
 
   private toLowerSnakeCase(input: string) {
     return input.toLowerCase().replace(/[-]/g, "_");
+  }
+
+  private toPascalCase(input: string) {
+    return input
+      .split("_")
+      .map((x) => x[0].toUpperCase() + x.slice(1))
+      .join("");
   }
 }
