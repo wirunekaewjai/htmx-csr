@@ -1,12 +1,8 @@
 use actix_web::{get, web, HttpRequest, HttpResponse};
-use html_to_string_macro::html;
 use mime::TEXT_HTML;
 use serde::Deserialize;
 
-use crate::{
-    functions::create_etag_response,
-    views::{counter, doc, navbar},
-};
+use crate::{components, functions::create_etag_response, views};
 
 #[derive(Deserialize)]
 struct CounterQuery {
@@ -16,17 +12,13 @@ struct CounterQuery {
 #[get("/counter")]
 pub async fn handle(req: HttpRequest, query: web::Query<CounterQuery>) -> HttpResponse {
     let count = query.count.unwrap_or(0);
-    let content = html!(
-        {navbar("/counter")}
+    let items = vec![
+        components::navbar("/counter"),
+        views::heading("Counter"),
+        views::counter(count - 1, count, count + 1),
+    ];
 
-        <h1 class="p-2 font-bold text-xl">
-            {"Counter"}
-        </h1>
-
-        {counter(count)}
-    );
-
-    let html = doc("Albums (server)", &content);
+    let html = views::doc("Counter", &items.join(""));
 
     return create_etag_response(&req, TEXT_HTML, html.into_bytes());
 }

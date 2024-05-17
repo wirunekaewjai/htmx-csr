@@ -1,32 +1,17 @@
 use actix_web::{get, HttpRequest, HttpResponse};
-use html_to_string_macro::html;
 use mime::TEXT_HTML;
 
-use crate::{
-    functions::create_etag_response,
-    views::{doc, navbar},
-};
+use crate::{components, functions::create_etag_response, views};
 
 #[get("/")]
 pub async fn handle(req: HttpRequest) -> HttpResponse {
-    let content = html!(
-        {navbar("/")}
+    let items = vec![
+        components::navbar("/"),
+        views::heading("List Posts"),
+        views::suspense("/@posts"),
+    ];
 
-        <h1 class="p-2 font-bold text-xl">
-            {"List Posts"}
-        </h1>
-
-        <div
-            class="p-2"
-            hx-get="/@posts"
-            hx-trigger="load"
-            hx-swap="outerHTML"
-        >
-            {"Loading . . ."}
-        </div>
-    );
-
-    let html = doc("Posts", &content);
+    let html = views::doc("Posts", &items.join(""));
 
     return create_etag_response(&req, TEXT_HTML, html.into_bytes());
 }

@@ -1,31 +1,4 @@
-use html_to_string_macro::html;
-
-pub fn counter(count: i32) -> String {
-    html!(
-        <div
-            class="p-2 flex flex-row items-center"
-            hx-target="this"
-            hx-swap="outerHTML"
-        >
-            <button
-                class="w-8 h-8 bg-red-600 text-white rounded-md shadow-md"
-                hx-get={format!("/@counter?count={}", count - 1)}
-                hx-trigger="click"
-                hx-replace-url={format!("/counter?count={}", count - 1)}
-            >
-                {"-"}
-            </button>
-            <div class="flex items-center px-4 h-8 mx-2 border rounded-md">
-                {count}
-            </div>
-            <button
-                class="w-8 h-8 bg-blue-600 text-white rounded-md shadow-md"
-                hx-get={format!("/@counter?count={}", count + 1)}
-                hx-trigger="click"
-                hx-replace-url={format!("/counter?count={}", count + 1)}
-            >
-                {"+"}
-            </button>
-        </div>
-    )
+// AUTO GENERATED @ 2024-05-17T15:32:35.865Z
+pub fn counter(decrement: i32, count: i32, increment: i32) -> String {
+    return format!(r#"<div class="p-2 flex flex-row items-center" hx-target="this" hx-swap="outerHTML" ><button class="w-8 h-8 bg-red-600 text-white rounded-md shadow-md" hx-get="/@counter?count={decrement}" hx-trigger="click" hx-replace-url="/counter?count={decrement}" >-</button><div class="flex items-center px-4 h-8 mx-2 border rounded-md">{count}</div><button class="w-8 h-8 bg-blue-600 text-white rounded-md shadow-md" hx-get="/@counter?count={increment}" hx-trigger="click" hx-replace-url="/counter?count={increment}" >+</button></div>"#);
 }

@@ -1,4 +1,8 @@
 {
+  "html.format.indentInnerHtml": true,
+  "html.format.extraLiners": "",
+  "html.format.wrapAttributes": "force-expand-multiline",
+  "html.format.preserveNewLines": true,
   "javascript.format.semicolons": "insert",
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "javascript.preferences.quoteStyle": "double",
@@ -8,6 +12,11 @@
   "rust-analyzer.linkedProjects": [
     "./Cargo.toml"
   ],
+  "[html]": {
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+  },
   "[rust]": {
     "editor.formatOnSave": true
   },
