@@ -1,16 +1,17 @@
 import { watch } from "@/bin/functions/watch";
-import { buildForRust } from "@wirunekaewjai/tiny-tsx/builder/build-for-rust";
-import { buildForTypescript } from "@wirunekaewjai/tiny-tsx/builder/build-for-typescript";
+import { TinyTsxParser } from "@wirunekaewjai/tiny-tsx/parser";
 import { $, type Subprocess } from "bun";
 import { styleText } from "node:util";
 
 async function buildViews() {
-  console.log(styleText("blue", "===== build views for client ====="));
-  await buildForTypescript("views/templates", "src/client/views");
+  const parser = new TinyTsxParser("views/templates");
+
+  console.log(styleText("blue", "===== parse views for client ====="));
+  await parser.typescript("src/client/views");
   console.log();
 
-  console.log(styleText("blue", "===== build views for server ====="));
-  await buildForRust("views/templates", "src/server/views");
+  console.log(styleText("blue", "===== parse views for server ====="));
+  await parser.rust("src/server/views");
   console.log();
 }
 

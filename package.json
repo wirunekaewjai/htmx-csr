@@ -12,7 +12,7 @@
   "devDependencies": {
     "@types/bun": "latest",
     "@wirunekaewjai/htmx-interceptor": "github:wirunekaewjai/htmx-interceptor#45e752a4328b5cf8337a8183987f284d85856786",
-    "@wirunekaewjai/tiny-tsx": "github:wirunekaewjai/tiny-tsx#f46f599127f62058af0e3db4d9a8c5702f8432b1",
+    "@wirunekaewjai/tiny-tsx": "github:wirunekaewjai/tiny-tsx#0417b936347dab1f6e5f955d3bb35e663b02737d",
     "tailwindcss": "^3.4.3"
   },
   "peerDependencies": {
