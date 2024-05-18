@@ -4,13 +4,13 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --delay 250ms --watch views --watch src -e ts,tsx,rs,html --ignore 'src/*/views/**/*' --exec 'bun src/bin/dev.ts'",
+    "dev": "bun src/bin/dev.ts",
+    "deploy": "bun run build && fly deploy",
     "build": "NODE_ENV=production bun src/bin/build.ts",
     "start": "cargo run --release"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "nodemon": "^3.1.0",
     "tailwindcss": "^3.4.3"
   },
   "peerDependencies": {
