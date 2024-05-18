@@ -1,5 +1,3 @@
-import { sha256 } from "@/bin/functions/sha256";
-import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 export interface Watch {
@@ -8,7 +6,8 @@ export interface Watch {
 }
 
 export async function watch(watches: Watch[]) {
-  const previousHashMaps: Array<Map<string, string>> = [];
+  const glob = new Bun.Glob("**/*");
+  const previousHashMaps: Array<Map<string, bigint>> = [];
 
   for (let i = 0; i < watches.length; i++) {
     previousHashMaps.push(new Map());
@@ -22,29 +21,30 @@ export async function watch(watches: Watch[]) {
       let isDirty = false;
 
       const currentFilePaths: string[] = [];
-      const glob = new Bun.Glob("**/*");
 
-      for (const cwd of dirs) {
-        const iter = glob.scan({
-          cwd,
-          onlyFiles: true,
-        });
+      await Promise.all(
+        dirs.map(async (cwd) => {
+          const iter = glob.scan({
+            cwd,
+            onlyFiles: true,
+          });
 
-        for await (const file of iter) {
-          const filePath = path.join(cwd, file);
-          const fileData = await readFile(filePath);
-          const fileHash = await sha256(fileData);
+          for await (const file of iter) {
+            const filePath = path.join(cwd, file);
+            const fileData = await Bun.file(filePath).arrayBuffer();
+            const fileHash = Bun.hash.wyhash(fileData);
 
-          const previousHash = previousHashMap.get(filePath);
+            const previousHash = previousHashMap.get(filePath);
 
-          if (previousHash !== fileHash) {
-            isDirty = true;
-            previousHashMap.set(filePath, fileHash);
+            if (previousHash !== fileHash) {
+              isDirty = true;
+              previousHashMap.set(filePath, fileHash);
+            }
+
+            currentFilePaths.push(filePath);
           }
-
-          currentFilePaths.push(filePath);
-        }
-      }
+        })
+      );
 
       const previousFilePaths = Array.from(previousHashMap.keys());
 

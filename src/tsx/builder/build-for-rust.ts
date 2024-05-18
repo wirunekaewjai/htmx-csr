@@ -2,7 +2,7 @@ import { cleanup } from "@/tsx/builder/functions/cleanup";
 import { glob } from "@/tsx/builder/functions/glob";
 import { $ } from "bun";
 import { existsSync } from "node:fs";
-import { lstat, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { lstat, mkdir, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { styleText } from "node:util";
 
@@ -291,7 +291,7 @@ for (const srcFilePath of srcFilePaths) {
   const dstParentPath = path.dirname(dstPath);
 
   try {
-    const data = await readFile(path.join(srcDir, srcFilePath), "utf8");
+    const data = await Bun.file(path.join(srcDir, srcFilePath)).text();
     const code = parseComponent(srcPathObj.name, data);
     const fmt = await $`echo "${code}" | rustfmt`.text();
 

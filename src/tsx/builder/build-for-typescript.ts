@@ -1,7 +1,7 @@
 import { cleanup } from "@/tsx/builder/functions/cleanup";
 import { glob } from "@/tsx/builder/functions/glob";
 import { existsSync } from "node:fs";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { styleText } from "node:util";
 
@@ -151,14 +151,13 @@ const dstDir = "src/client/views";
 const startAt = Date.now();
 
 for (const srcFilePath of srcFilePaths) {
-
   const dstPath = path.join(dstDir, srcFilePath);
   const dstParentPath = path.dirname(dstPath);
 
   try {
     const srcPathObj = path.parse(srcFilePath);
 
-    const data = await readFile(path.join(srcDir, srcFilePath), "utf8");
+    const data = await Bun.file(path.join(srcDir, srcFilePath)).text();
     const code = parseComponent(srcPathObj.name, data);
 
     await mkdir(dstParentPath, {

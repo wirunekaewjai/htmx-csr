@@ -42,7 +42,12 @@ await watch([
     callback: buildViews,
   },
   {
-    dirs: ["src/client", "src/server"],
+    dirs: [
+      "src/client/components",
+      "src/client/pages",
+      "src/client/views",
+      "src/server/views",
+    ],
     callback: buildCss,
   },
   {
