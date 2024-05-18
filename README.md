@@ -13,3 +13,6 @@ https://htmx-csr.fly.dev
 ## release command
 - bun run build
 - bun start
+
+### "views" folder
+- used by cli (read all files and generate to src/client/views/*.tsx and src/server/views/*.rs)
