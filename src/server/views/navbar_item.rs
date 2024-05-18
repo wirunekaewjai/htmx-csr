@@ -1,14 +1,14 @@
-// AUTO GENERATED @ 2024-05-17T16:46:47.982Z
-pub struct NavbarItemProps {
-    pub active: bool,
-    pub content: String,
-    pub href: String,
-}
+// AUTO GENERATED
+use html_to_string_macro::html;
 
-pub fn navbar_item(props: NavbarItemProps) -> String {
-    let active = props.active;
-    let content = props.content;
-    let href = props.href;
-
-    return format!(r#"<a class="p-2 hover:bg-white/10 rounded-full data-[active=true]:bg-white/20 data-[active=true]:pointer-events-none" href="{href}" data-active="{active}" >{content}</a>"#);
+pub fn navbar_item(href: &str, active: bool, content: &str) -> String {
+    return html!(
+      <a
+        class="p-2 hover:bg-white/10 rounded-full data-[active=true]:bg-white/20 data-[active=true]:pointer-events-none"
+        href={href}
+        data-active={active}
+      >
+        {content}
+      </a>
+    );
 }

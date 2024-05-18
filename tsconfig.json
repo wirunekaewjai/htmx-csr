@@ -7,7 +7,7 @@
     "moduleDetection": "force",
     "allowJs": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "src/jsx",
+    "jsxImportSource": "src/tsx/jsx-runtime",
 
     // Bundler mode
     "moduleResolution": "bundler",

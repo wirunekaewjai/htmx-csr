@@ -1,20 +1,20 @@
 import { lstat, readdir, readFile, rm } from "node:fs/promises";
 import { posix } from "node:path";
 
-export async function cleanup(parent: string, key: string) {
+export async function cleanup(parent: string, startAt: number) {
   const files = await readdir(parent);
 
   for (const file of files) {
     const path = posix.join(parent, file);
 
     if ((await lstat(path)).isDirectory()) {
-      await cleanup(path, key);
+      await cleanup(path, startAt);
     }
 
     else {
-      const text = await readFile(path, "utf8");
+      const { mtimeMs } = await lstat(path);
 
-      if (text.startsWith(key)) {
+      if (mtimeMs > startAt) {
         continue;
       }
 

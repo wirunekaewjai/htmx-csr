@@ -19,10 +19,5 @@ interceptor.get("/@post", ({ query }) => {
 // +/- on client-side
 interceptor.get("/@counter", ({ query }) => {
   const count = Number(query.count);
-
-  return counter({
-    count,
-    decrement: count - 1,
-    increment: count + 1,
-  });
+  return counter(count);
 });

@@ -13,23 +13,12 @@ struct CounterQuery {
 pub async fn handle(req: HttpRequest, query: web::Query<CounterQuery>) -> HttpResponse {
     let count = query.count.unwrap_or(0);
     let items = vec![
-        components::menu(components::MenuProps {
-            path: "/counter".into(),
-        }),
-        views::heading(views::HeadingProps {
-            content: "Counter".into(),
-        }),
-        views::counter(views::CounterProps {
-            count,
-            decrement: count - 1,
-            increment: count + 1,
-        }),
+        components::menu("/counter"),
+        views::heading("Counter"),
+        views::counter(count),
     ];
 
-    let html = views::doc(views::DocProps {
-        content: items.join(""),
-        title: "Counter".into(),
-    });
+    let html = views::doc("Counter", &items.join(""));
 
     return create_etag_response(&req, TEXT_HTML, html.into_bytes());
 }

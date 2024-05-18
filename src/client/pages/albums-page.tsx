@@ -9,8 +9,8 @@ export function albumsPage() {
     <title>Albums (client)</title>,
 
     // body
-    menu({ path: "/albums" }),
-    heading({ content: "List Albums (client-side rendering)" }),
-    suspense({ path: "/@albums" }),
+    menu("/albums"),
+    heading("List Albums (client-side rendering)"),
+    suspense("/@albums"),
   );
 }

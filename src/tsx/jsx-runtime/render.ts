@@ -65,9 +65,9 @@ export function render(type: Function | string | undefined, props: Record<string
   if (typeof type === "string") {
     let text = "";
 
-    if (type === "html") {
-      text += "<!DOCTYPE html>";
-    }
+    // if (type === "html") {
+    //   text += "<!DOCTYPE html>";
+    // }
 
     text += "<" + type + renderAttrs(attrs) + ">";
 

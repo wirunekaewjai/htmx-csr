@@ -1,9 +1,7 @@
-import { RsGen } from "@/bin/classes/rs-gen";
-import { TsGen } from "@/bin/classes/ts-gen";
 import { $ } from "bun";
 
-await new TsGen("views", "src/client/views").generate();
-await new RsGen("views", "src/server/views").generate();
+await $`bun src/tsx/builder/build-for-typescript.ts`;
+await $`bun src/tsx/builder/build-for-rust.ts`;
 
 await $`tailwindcss -i ./tailwind.css -o ./assets/style.css`;
 await Bun.build({

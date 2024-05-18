@@ -6,19 +6,12 @@ use crate::{components, functions::create_etag_response, views};
 #[get("/")]
 pub async fn handle(req: HttpRequest) -> HttpResponse {
     let items = vec![
-        components::menu(components::MenuProps { path: "/".into() }),
-        views::heading(views::HeadingProps {
-            content: "List Posts".into(),
-        }),
-        views::suspense(views::SuspenseProps {
-            path: "/@posts".into(),
-        }),
+        components::menu("/"),
+        views::heading("List Posts"),
+        views::suspense("/@posts"),
     ];
 
-    let html = views::doc(views::DocProps {
-        content: items.join(""),
-        title: "Posts".into(),
-    });
+    let html = views::doc("Posts", &items.join(""));
 
     return create_etag_response(&req, TEXT_HTML, html.into_bytes());
 }

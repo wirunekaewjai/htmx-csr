@@ -1,10 +1,15 @@
-// AUTO GENERATED @ 2024-05-17T16:46:47.982Z
-pub struct SuspenseProps {
-    pub path: String,
-}
+// AUTO GENERATED
+use html_to_string_macro::html;
 
-pub fn suspense(props: SuspenseProps) -> String {
-    let path = props.path;
-
-    return format!(r#"<div class="p-2" hx-get="{path}" hx-trigger="load" hx-swap="outerHTML" >Loading . . .</div>"#);
+pub fn suspense(href: &str) -> String {
+    return html!(
+      <div
+        class="p-2"
+        hx-get={href}
+        hx-trigger="load"
+        hx-swap="outerHTML"
+      >
+        {"Loading . . ."}
+      </div>
+    );
 }
