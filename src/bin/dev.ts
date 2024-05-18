@@ -1,4 +1,4 @@
-import { watch } from "@/bin/functions/watch";
+import { sequentialWatch } from "@wirunekaewjai/sequential-watch";
 import { TinyTsxParser } from "@wirunekaewjai/tiny-tsx/parser";
 import { $, type Subprocess } from "bun";
 import { styleText } from "node:util";
@@ -39,7 +39,7 @@ async function buildScript() {
 
 let server: Subprocess | null = null;
 
-await watch([
+await sequentialWatch([
   {
     dirs: ["views"],
     callback: buildViews,
