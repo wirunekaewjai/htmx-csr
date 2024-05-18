@@ -94,7 +94,7 @@ export type HtmlAttributes = Partial<{
 }>;
 
 export type EventAttributes = {
-
+  // TODO
 };
 
 export type CustomAttributes = {

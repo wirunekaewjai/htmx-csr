@@ -1,8 +1,10 @@
 import { cleanup } from "@/tsx/builder/functions/cleanup";
 import { glob } from "@/tsx/builder/functions/glob";
 import { $ } from "bun";
+import { existsSync } from "node:fs";
 import { lstat, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { styleText } from "node:util";
 
 function toPascalCase(input: string) {
   return input
@@ -270,7 +272,7 @@ async function generateModules(parent: string, startAt: number) {
 
   await writeFile(mod, fmt, "utf8");
 
-  console.log("#", mod);
+  console.log("*", mod);
 }
 
 const srcDir = "views";
@@ -281,25 +283,38 @@ const startAt = Date.now();
 
 for (const srcFilePath of srcFilePaths) {
   const srcPathObj = path.parse(srcFilePath);
-  const data = await readFile(path.join(srcDir, srcFilePath), "utf8");
-  const code = parseComponent(srcPathObj.name, data);
-  const fmt = await $`echo "${code}" | rustfmt`.text();
 
   const srcParentPath = srcPathObj.dir;
   const srcFileName = toLowerSnakeCase(srcPathObj.name) + ".rs";
 
   const dstPath = path.join(dstDir, srcParentPath, srcFileName);
   const dstParentPath = path.dirname(dstPath);
-  const dstText = "// AUTO GENERATED\n" + fmt;
 
-  await mkdir(dstParentPath, {
-    recursive: true,
-  });
+  try {
+    const data = await readFile(path.join(srcDir, srcFilePath), "utf8");
+    const code = parseComponent(srcPathObj.name, data);
+    const fmt = await $`echo "${code}" | rustfmt`.text();
 
-  await writeFile(dstPath, dstText, "utf8");
+    await mkdir(dstParentPath, {
+      recursive: true,
+    });
+
+    const exists = existsSync(dstPath);
+    const dstText = "// AUTO GENERATED\n" + fmt;
+
+    await writeFile(dstPath, dstText, "utf8");
+
+    if (exists) {
+      console.log("*", dstPath);
+    } else {
+      console.log(styleText("green", `+ ${dstPath}`));
+    }
+  } catch {
+    console.log(styleText("yellow", `! ${dstPath}`));
+  }
 
   // console.log("-----");
-  console.log("#", dstPath);
+  // console.log("#", dstPath);
   // console.log(code);
   // console.log("-----");
   // console.log();
@@ -307,5 +322,3 @@ for (const srcFilePath of srcFilePaths) {
 
 await generateModules(dstDir, startAt);
 await cleanup(dstDir, startAt);
-// console.log(data);
-console.log();

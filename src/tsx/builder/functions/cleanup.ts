@@ -1,5 +1,6 @@
-import { lstat, readdir, readFile, rm } from "node:fs/promises";
+import { lstat, readdir, rm } from "node:fs/promises";
 import { posix } from "node:path";
+import { styleText } from "node:util";
 
 export async function cleanup(parent: string, startAt: number) {
   const files = await readdir(parent);
@@ -23,7 +24,7 @@ export async function cleanup(parent: string, startAt: number) {
         recursive: true,
       });
 
-      console.log("delete:", path);
+      console.log(styleText("red", `- ${path}`));
     }
   }
 
@@ -38,5 +39,5 @@ export async function cleanup(parent: string, startAt: number) {
     recursive: true,
   });
 
-  console.log("delete:", parent);
+  console.log(styleText("red", `- ${parent}`));
 }

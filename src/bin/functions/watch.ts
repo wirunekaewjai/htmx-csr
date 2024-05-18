@@ -10,7 +10,7 @@ export interface Watch {
 export async function watch(watches: Watch[]) {
   const previousHashMaps: Array<Map<string, string>> = [];
 
-  for (const _ of watches) {
+  for (let i = 0; i < watches.length; i++) {
     previousHashMaps.push(new Map());
   }
 
