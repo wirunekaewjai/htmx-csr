@@ -1,15 +1,16 @@
-import { buildForRust } from "@wirunekaewjai/tiny-tsx/builder/build-for-rust";
-import { buildForTypescript } from "@wirunekaewjai/tiny-tsx/builder/build-for-typescript";
+import { Builder as TinyTsxBuilder } from "@wirunekaewjai/tiny-tsx/builder";
 import { $ } from "bun";
 import { styleText } from "node:util";
 
 async function buildViews() {
+  const builder = new TinyTsxBuilder("views/templates");
+
   console.log(styleText("blue", "===== build views for client ====="));
-  await buildForTypescript("views/templates", "src/client/views");
+  await builder.typescript("src/client/views");
   console.log();
 
   console.log(styleText("blue", "===== build views for server ====="));
-  await buildForRust("views/templates", "src/server/views");
+  await builder.rust("src/server/views");
   console.log();
 }
 

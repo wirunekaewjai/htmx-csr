@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "@wirunekaewjai/tiny-tsx/jsx-runtime",
+    "jsxImportSource": "@wirunekaewjai/tiny-tsx/runtime",
   },
   "include": [
-    "../node_modules/@wirunekaewjai/tiny-tsx/builder/tsx.d.ts",
+    "../node_modules/@wirunekaewjai/tiny-tsx/tiny-tsx.d.ts",
     "templates/**/*"
   ]
 }
