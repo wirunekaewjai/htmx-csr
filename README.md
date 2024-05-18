@@ -16,3 +16,4 @@ https://htmx-csr.fly.dev
 
 ## "views" folder
 - used by cli (read all files and generate to src/client/views/*.tsx and src/server/views/*.rs)
+- stricted tsx (no import, no export, just interfaces, args and jsx)
