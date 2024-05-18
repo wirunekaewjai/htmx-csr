@@ -7,7 +7,7 @@
     "moduleDetection": "force",
     "allowJs": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "src/tsx/jsx-runtime",
+    "jsxImportSource": "@wirunekaewjai/tiny-tsx/jsx-runtime",
 
     // Bundler mode
     "moduleResolution": "bundler",
@@ -31,5 +31,8 @@
         "./src/*"
       ]
     }
-  }
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
