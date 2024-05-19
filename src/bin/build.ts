@@ -2,15 +2,16 @@ import { TinyTsxParser } from "@wirunekaewjai/tiny-tsx/parser";
 import { $ } from "bun";
 import { styleText } from "node:util";
 
-async function buildViews() {
-  const parser = new TinyTsxParser("views/templates");
+const parserTsx = new TinyTsxParser("views/templates", "src/client/views", ".tsx");
+const parserRs = new TinyTsxParser("views/templates", "src/server/views", ".rs");
 
+async function buildViews() {
   console.log(styleText("blue", "===== parse views for client ====="));
-  await parser.typescript("src/client/views");
+  await parserTsx.parse();
   console.log();
 
   console.log(styleText("blue", "===== parse views for server ====="));
-  await parser.rust("src/server/views");
+  await parserRs.parse();
   console.log();
 }
 

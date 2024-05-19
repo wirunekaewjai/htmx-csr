@@ -13,7 +13,7 @@
     "@types/bun": "latest",
     "@wirunekaewjai/htmx-interceptor": "github:wirunekaewjai/htmx-interceptor#45e752a4328b5cf8337a8183987f284d85856786",
     "@wirunekaewjai/sequential-watch": "github:wirunekaewjai/sequential-watch#b42d2cfa837ea99a350b877991601808a6b61cdc",
-    "@wirunekaewjai/tiny-tsx": "github:wirunekaewjai/tiny-tsx#c86412b63c5073514bd09dffca5f383cffec1838",
+    "@wirunekaewjai/tiny-tsx": "github:wirunekaewjai/tiny-tsx#ff29ca9c1bfd405251f22a18493bddcf1fb88a83",
     "tailwindcss": "^3.4.3"
   },
   "peerDependencies": {
