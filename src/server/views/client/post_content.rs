@@ -5,10 +5,10 @@ pub struct PostContentPost {
 }
 
 pub fn post_content(post: PostContentPost) -> String {
-    let v_0 = post.title;
-    let v_1 = post.body;
-
-    return format!(r#"<div class="p-2 space-y-2"><h1 class="text-xl">{}</h1><p>{}</p></div>"#, v_0, v_1);
+    return format!(
+        r#"<div class="p-2 space-y-2"><h1 class="text-xl">{}</h1><p>{}</p></div>"#,
+        post.title, post.body
+    );
 }
 
 /*
