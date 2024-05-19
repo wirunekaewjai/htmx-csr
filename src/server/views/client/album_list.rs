@@ -1,12 +1,10 @@
 // AUTO GENERATED
-pub fn album_list(content: &str) -> String {
-    return format!(r#"<div class="space-y-2 divide-y">{}</div>"#, content);
-}
+use html_to_string_macro::html;
 
-/*
-(
-  <div class="space-y-2 divide-y">
-    {content}
-  </div>
-);
-*/
+pub fn album_list(content: &str) -> String {
+    return html!(
+      <div class="space-y-2 divide-y">
+        {content}
+      </div>
+    );
+}

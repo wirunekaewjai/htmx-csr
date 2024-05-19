@@ -7,11 +7,11 @@ const parser = new TinyTsxParser("views/templates");
 
 async function buildViews() {
   console.log(styleText("blue", "===== parse views for client ====="));
-  await parser.parse("typescript_html_string", "src/client/views", "$");
+  await parser.parse("typescript_jsx", "src/client/views", "$");
   console.log();
 
   console.log(styleText("blue", "===== parse views for server ====="));
-  await parser.parse("rust_html_string", "src/server/views");
+  await parser.parse("rust_html_macro", "src/server/views");
   console.log();
 }
 

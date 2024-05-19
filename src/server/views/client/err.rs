@@ -1,10 +1,8 @@
 // AUTO GENERATED
-pub fn err(content: &str) -> String {
-    return format!(r#"<div>{}</div>"#, content);
-}
+use html_to_string_macro::html;
 
-/*
-(
-  <div>{content}</div>
-);
-*/
+pub fn err(content: &str) -> String {
+    return html!(
+      <div>{content}</div>
+    );
+}

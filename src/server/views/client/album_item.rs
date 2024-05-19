@@ -1,16 +1,14 @@
 // AUTO GENERATED
+use html_to_string_macro::html;
+
 pub struct AlbumItemAlbum {
     title: String,
 }
 
 pub fn album_item(album: AlbumItemAlbum) -> String {
-    return format!(r#"<div class="p-2">{}</div>"#, album.title);
+    return html!(
+      <div class="p-2">
+        {album.title}
+      </div>
+    );
 }
-
-/*
-(
-  <div class="p-2">
-    {album.title}
-  </div>
-);
-*/

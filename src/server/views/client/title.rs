@@ -1,10 +1,8 @@
 // AUTO GENERATED
-pub fn title(content: &str) -> String {
-    return format!(r#"<title>{}</title>"#, content);
-}
+use html_to_string_macro::html;
 
-/*
-(
-  <title>{content}</title>
-);
-*/
+pub fn title(content: &str) -> String {
+    return html!(
+      <title>{content}</title>
+    );
+}
