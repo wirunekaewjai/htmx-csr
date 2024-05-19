@@ -1,4 +1,4 @@
-import { TinyTsxParser } from "@wirunekaewjai/tiny-tsx/parser";
+import { TinyTsxParser } from "@wirunekaewjai/ts/tiny-tsx/parser";
 import { $ } from "bun";
 import { styleText } from "node:util";
 

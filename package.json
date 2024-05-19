@@ -11,9 +11,7 @@
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "@wirunekaewjai/htmx-interceptor": "github:wirunekaewjai/htmx-interceptor#45e752a4328b5cf8337a8183987f284d85856786",
-    "@wirunekaewjai/sequential-watch": "github:wirunekaewjai/sequential-watch#b42d2cfa837ea99a350b877991601808a6b61cdc",
-    "@wirunekaewjai/tiny-tsx": "github:wirunekaewjai/tiny-tsx#ff29ca9c1bfd405251f22a18493bddcf1fb88a83",
+    "@wirunekaewjai/ts": "github:wirunekaewjai/ts#7d6a32c3e1805800d7186b01fa5c77c6c6e7fa59",
     "tailwindcss": "^3.4.3"
   },
   "peerDependencies": {

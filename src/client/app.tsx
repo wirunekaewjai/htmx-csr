@@ -1,4 +1,4 @@
-import "@wirunekaewjai/htmx-interceptor/prelude";
+import "@wirunekaewjai/ts/htmx-interceptor/prelude";
 
 import { albums } from "@/client/components/albums";
 import { post } from "@/client/components/post";

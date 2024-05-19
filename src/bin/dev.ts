@@ -1,5 +1,5 @@
-import { sequentialWatch } from "@wirunekaewjai/sequential-watch";
-import { TinyTsxParser } from "@wirunekaewjai/tiny-tsx/parser";
+import { sequentialWatch } from "@wirunekaewjai/ts/sequential-watch";
+import { TinyTsxParser } from "@wirunekaewjai/ts/tiny-tsx/parser";
 import { $, type Subprocess } from "bun";
 import { styleText } from "node:util";
 
