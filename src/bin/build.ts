@@ -2,16 +2,15 @@ import { TinyTsxParser } from "@wirunekaewjai/ts/tiny-tsx/parser";
 import { $ } from "bun";
 import { styleText } from "node:util";
 
-const parserTsx = new TinyTsxParser("views/templates", "src/client/views", ".tsx");
-const parserRs = new TinyTsxParser("views/templates", "src/server/views", ".rs");
+const parser = new TinyTsxParser("views/templates");
 
 async function buildViews() {
   console.log(styleText("blue", "===== parse views for client ====="));
-  await parserTsx.parse();
+  await parser.parse("typescript_jsx", "src/client/views");
   console.log();
 
   console.log(styleText("blue", "===== parse views for server ====="));
-  await parserRs.parse();
+  await parser.parse("rust_html_macro", "src/server/views");
   console.log();
 }
 
@@ -25,13 +24,17 @@ async function buildScript() {
   console.log(styleText("blue", "===== build client script ====="));
   console.time("usage");
 
-  await Bun.build({
+  const build = await Bun.build({
     entrypoints: [
       "src/client/app.tsx",
     ],
     outdir: "assets",
     minify: true,
   });
+
+  if (!build.success) {
+    console.log(build.logs);
+  }
 
   console.timeEnd("usage");
   console.log();
