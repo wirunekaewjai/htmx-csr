@@ -4,7 +4,7 @@ import { albums } from "@/client/components/albums";
 import { post } from "@/client/components/post";
 import { posts } from "@/client/components/posts";
 import { albumsPage } from "@/client/pages/albums-page";
-import { counter } from "@/client/views/counter";
+import { $counter } from "@/client/views/counter";
 
 // client-side page
 interceptor.add("/albums", albumsPage);
@@ -19,5 +19,5 @@ interceptor.add("/@post", ({ query }) => {
 // +/- on client-side
 interceptor.add("/@counter", ({ query }) => {
   const count = Number(query.count);
-  return counter(count);
+  return $counter(count);
 });

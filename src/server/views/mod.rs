@@ -1,3 +1,5 @@
+pub mod client;
+
 mod counter;
 mod doc;
 mod heading;

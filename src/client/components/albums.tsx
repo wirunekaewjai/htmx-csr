@@ -1,27 +1,19 @@
+import { join } from "@/client/functions/join";
 import type { Album } from "@/client/types/album";
+import { $album_item } from "@/client/views/client/album-item";
+import { $album_list } from "@/client/views/client/album-list";
+import { $err } from "@/client/views/client/err";
 
 export async function albums() {
   const url = "https://jsonplaceholder.typicode.com/albums";
   const res = await fetch(url);
 
   if (!res.ok) {
-    return (
-      <div>Failed to fetch albums</div>
-    );
+    return $err("Failed to fetch albums");
   }
 
   const albums: Album[] = await res.json();
-  const children = albums.map((album) => {
-    return (
-      <div class="p-2">
-        {album.title}
-      </div>
-    );
-  });
+  const content = join(...albums.map($album_item));
 
-  return (
-    <div class="space-y-2 divide-y">
-      {children}
-    </div>
-  );
+  return $album_list(content);
 }
