@@ -26,7 +26,7 @@ async function buildScript() {
 
   const build = await Bun.build({
     entrypoints: [
-      "src/client/app.tsx",
+      "src/client/app.ts",
     ],
     outdir: "assets",
     minify: true,
