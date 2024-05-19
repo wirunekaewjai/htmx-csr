@@ -1,16 +1,27 @@
-import { TinyTsxParser } from "@wirunekaewjai/ts/tiny-tsx/parser";
+import { OutputType, TinyTsxParser } from "@wirunekaewjai/ts/tiny-tsx/parser";
 import { $ } from "bun";
 import { styleText } from "node:util";
 
-const parser = new TinyTsxParser("views/templates");
+const parser = new TinyTsxParser(
+  "views/templates",
+  [
+    {
+      dir: "src/client/views",
+      namespace: "$",
+      // type: OutputType.TS_JSX,
+      type: OutputType.TS_STRING,
+    },
+    {
+      dir: "src/server/views",
+      // type: OutputType.RS_MACRO,
+      type: OutputType.RS_STRING,
+    },
+  ],
+);
 
-async function buildViews() {
-  console.log(styleText("blue", "===== parse views for client ====="));
-  await parser.parse("typescript_jsx", "src/client/views", "$");
-  console.log();
-
-  console.log(styleText("blue", "===== parse views for server ====="));
-  await parser.parse("rust_html_macro", "src/server/views");
+async function buildJsx() {
+  console.log(styleText("blue", "===== build jsx ====="));
+  await parser.parse();
   console.log();
 }
 
@@ -40,6 +51,6 @@ async function buildScript() {
   console.log();
 }
 
-await buildViews();
+await buildJsx();
 await buildCss();
 await buildScript();

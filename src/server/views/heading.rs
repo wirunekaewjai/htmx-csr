@@ -1,10 +1,12 @@
 // AUTO GENERATED
-use html_to_string_macro::html;
-
 pub fn heading(content: &str) -> String {
-    return html!(
-      <h1 class="p-2 font-bold text-xl">
-        {content}
-      </h1>
-    );
+    return format!(r#"<h1 class="p-2 font-bold text-xl">{}</h1>"#, content);
 }
+
+/*
+(
+  <h1 class="p-2 font-bold text-xl">
+    {content}
+  </h1>
+);
+*/
