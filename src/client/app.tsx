@@ -7,17 +7,17 @@ import { albumsPage } from "@/client/pages/albums-page";
 import { counter } from "@/client/views/counter";
 
 // client-side page
-interceptor.get("/albums", albumsPage);
+interceptor.add("/albums", albumsPage);
 
 // fetch 3rd party api on client-side
-interceptor.get("/@albums", albums);
-interceptor.get("/@posts", posts);
-interceptor.get("/@post", ({ query }) => {
+interceptor.add("/@albums", albums);
+interceptor.add("/@posts", posts);
+interceptor.add("/@post", ({ query }) => {
   return post(Number(query.id));
 });
 
 // +/- on client-side
-interceptor.get("/@counter", ({ query }) => {
+interceptor.add("/@counter", ({ query }) => {
   const count = Number(query.count);
   return counter(count);
 });

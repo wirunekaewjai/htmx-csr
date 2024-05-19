@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "@wirunekaewjai/ts": "github:wirunekaewjai/ts#7d6a32c3e1805800d7186b01fa5c77c6c6e7fa59",
+    "@wirunekaewjai/ts": "github:wirunekaewjai/ts#77e81a850bd3ee5e9e11075021d3a83534d68c50",
     "tailwindcss": "^3.4.3"
   },
   "peerDependencies": {
