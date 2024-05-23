@@ -10,12 +10,12 @@ const parser = new TinyTsxParser(
       dir: "src/client/views",
       namespace: "$",
       // type: OutputType.TS_JSX,
-      type: OutputType.TS_STRING,
+      type: OutputType.TS_HTML,
     },
     {
       dir: "src/server/views",
       // type: OutputType.RS_MACRO,
-      type: OutputType.RS_STRING,
+      type: OutputType.RS_HTML,
     },
   ],
 );

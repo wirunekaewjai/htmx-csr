@@ -6,9 +6,8 @@ pub struct PostItemPost {
 
 pub fn post_item(post: PostItemPost) -> String {
     return format!(
-        r#"<a class="block p-2 hover:text-blue-400" href="{}">{}</a>"#,
-        format!("/posts/{}", post.id),
-        post.title
+        r#"<a class="block p-2 hover:text-blue-400" href="/posts/{}">{}</a>"#,
+        post.id, post.title
     );
 }
 
