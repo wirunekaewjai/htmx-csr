@@ -8,7 +8,11 @@ pub fn album_item(album: AlbumItemAlbum) -> String {
 }
 
 /*
-(
+interface Album {
+  title: string;
+}
+
+(album: Album) => (
   <div class="p-2">
     {album.title}
   </div>

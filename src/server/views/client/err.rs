@@ -4,7 +4,7 @@ pub fn err(content: &str) -> String {
 }
 
 /*
-(
+(content: string) => (
   <div>{content}</div>
 );
 */

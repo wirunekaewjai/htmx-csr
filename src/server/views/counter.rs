@@ -13,7 +13,7 @@ pub fn counter(count: i32) -> String {
 }
 
 /*
-(
+(count: i32) => (
   <div
     class="p-2 flex flex-row items-center"
     hx-target="this"

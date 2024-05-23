@@ -7,7 +7,7 @@ pub fn navbar_item(href: &str, active: bool, content: &str) -> String {
 }
 
 /*
-(
+(href: string, active: boolean, content: string) => (
   <a
     class="p-2 hover:bg-white/10 rounded-full data-[active=true]:bg-white/20 data-[active=true]:pointer-events-none"
     href={href}

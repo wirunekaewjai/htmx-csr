@@ -4,7 +4,7 @@ pub fn title(content: &str) -> String {
 }
 
 /*
-(
+(content: string) => (
   <title>{content}</title>
 );
 */

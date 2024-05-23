@@ -7,7 +7,7 @@ pub fn suspense(href: &str) -> String {
 }
 
 /*
-(
+(href: string) => (
   <div
     class="p-2"
     hx-get={href}

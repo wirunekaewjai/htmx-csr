@@ -7,7 +7,7 @@ pub fn doc(title: &str, content: &str) -> String {
 }
 
 /*
-(
+(title: string, content: string) => (
   <>
     {"<!DOCTYPE html>"}
     <html lang="en">

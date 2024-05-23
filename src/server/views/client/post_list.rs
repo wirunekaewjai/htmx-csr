@@ -7,7 +7,7 @@ pub fn post_list(content: &str) -> String {
 }
 
 /*
-(
+(content: string) => (
   <div
     class="space-y-2 divide-y"
     hx-boost="true"
