@@ -17,4 +17,4 @@ mime = "0.3.17"
 serde = { version = "1.0.197", features = ["derive"] }
 serde_json = "1.0.115"
 sha2 = "0.10.8"
-tiny-tsx = { git = "https://github.com/wirunekaewjai/tiny-tsx.git", rev = "69d148bd3c54718eba1679cd26406ef6d669f885" }
+tiny-tsx = { git = "https://github.com/wirunekaewjai/tiny-tsx.git", rev = "bc03c846f7d9865b4a0e643be3bf3a898701521f" }

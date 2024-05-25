@@ -1,5 +1,5 @@
 // AUTO GENERATED
-use tiny_tsx::render_array;
+use tiny_tsx::tsx_map;
 
 pub struct PostListPost {
     pub id: i32,
@@ -9,7 +9,7 @@ pub struct PostListPost {
 pub fn post_list(posts: Vec<PostListPost>) -> String {
     return format!(
         r#"<div class="space-y-2 divide-y" hx-boost="true">{}</div>"#,
-        render_array(posts, &|post| format!(
+        tsx_map(&posts, &|post| format!(
             r#"<a class="block p-2 hover:text-blue-400" href="/posts/{}">{}</a>"#,
             post.id, post.title
         ))

@@ -1,12 +1,12 @@
 // AUTO GENERATED
-import { render_array } from "@wirunekaewjai/tiny-tsx/macro";
+import { tsx_map } from "@wirunekaewjai/tiny-tsx/macro";
 
 export interface PostListPost {
   id: number;
   title: string;
 }
 
-export const $post_list = (posts: PostListPost[]) => `<div class="space-y-2 divide-y" hx-boost="true">${render_array(posts, (post) => `<a class="block p-2 hover:text-blue-400" href="/posts/${post.id}">${post.title}</a>`)}</div>`;
+export const $post_list = (posts: PostListPost[]) => `<div class="space-y-2 divide-y" hx-boost="true">${tsx_map(posts, (post) => `<a class="block p-2 hover:text-blue-400" href="/posts/${post.id}">${post.title}</a>`)}</div>`;
 
 /*
 interface Post {
