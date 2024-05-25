@@ -1,10 +1,24 @@
 // AUTO GENERATED
-export const $album_list = (content: string) => `<div class="space-y-2 divide-y">${content}</div>`;
+import { tsx_map } from "@wirunekaewjai/tiny-tsx/macro";
+
+export interface AlbumListAlbum {
+  title: string;
+}
+
+export const $album_list = (albums: AlbumListAlbum[]) => `<div class="space-y-2 divide-y">${tsx_map(albums, (album) => `<div class="p-2">${album.title}</div>`)}</div>`;
 
 /*
-(content: string) => (
+interface Album {
+  title: string;
+}
+
+(albums: Album[]) => (
   <div class="space-y-2 divide-y">
-    {content}
+    {map(albums, (album) => (
+      <div class="p-2">
+        {album.title}
+      </div>
+    ))}
   </div>
 );
 */

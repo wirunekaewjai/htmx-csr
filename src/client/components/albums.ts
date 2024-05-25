@@ -1,6 +1,4 @@
-import { join } from "@/client/functions/join";
 import type { Album } from "@/client/types/album";
-import { $album_item } from "@/client/views/client/album-item";
 import { $album_list } from "@/client/views/client/album-list";
 import { $err } from "@/client/views/client/err";
 
@@ -13,7 +11,5 @@ export async function albums() {
   }
 
   const albums: Album[] = await res.json();
-  const content = join(...albums.map($album_item));
-
-  return $album_list(content);
+  return $album_list(albums);
 }

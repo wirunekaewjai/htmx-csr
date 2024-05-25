@@ -1,12 +1,32 @@
 // AUTO GENERATED
-pub fn album_list(content: &str) -> String {
-    return format!(r#"<div class="space-y-2 divide-y">{}</div>"#, content);
+use tiny_tsx::tsx_map;
+
+pub struct AlbumListAlbum {
+    pub title: String,
+}
+
+pub fn album_list(albums: Vec<AlbumListAlbum>) -> String {
+    return format!(
+        r#"<div class="space-y-2 divide-y">{}</div>"#,
+        tsx_map(&albums, &|album| format!(
+            r#"<div class="p-2">{}</div>"#,
+            album.title
+        ))
+    );
 }
 
 /*
-(content: string) => (
+interface Album {
+  title: string;
+}
+
+(albums: Album[]) => (
   <div class="space-y-2 divide-y">
-    {content}
+    {map(albums, (album) => (
+      <div class="p-2">
+        {album.title}
+      </div>
+    ))}
   </div>
 );
 */

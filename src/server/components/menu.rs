@@ -7,5 +7,5 @@ pub fn menu(path: &str) -> String {
         views::navbar_item("/counter", path == "/counter", "Counter"),
     ];
 
-    views::navbar(&items.join(""))
+    views::navbar(items)
 }

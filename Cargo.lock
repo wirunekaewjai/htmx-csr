@@ -1120,7 +1120,7 @@ dependencies = [
 [[package]]
 name = "tiny-tsx"
 version = "0.1.0"
-source = "git+https://github.com/wirunekaewjai/tiny-tsx.git?rev=bc03c846f7d9865b4a0e643be3bf3a898701521f#bc03c846f7d9865b4a0e643be3bf3a898701521f"
+source = "git+https://github.com/wirunekaewjai/tiny-tsx.git?rev=50e6d6499f0f10bd59d0ce4233a9b09c67dc3b36#50e6d6499f0f10bd59d0ce4233a9b09c67dc3b36"
 
 [[package]]
 name = "tinyvec"
