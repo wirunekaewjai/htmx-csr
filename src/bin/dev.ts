@@ -1,28 +1,23 @@
+import { parse } from "@wirunekaewjai/tiny-tsx/parser";
 import { sequentialWatch } from "@wirunekaewjai/ts/sequential-watch";
-import { OutputType, TinyTsxParser } from "@wirunekaewjai/ts/tiny-tsx/parser";
 import { $, type Subprocess } from "bun";
 import { styleText } from "node:util";
 
-const parser = new TinyTsxParser(
-  "views/templates",
-  [
-    {
-      dir: "src/client/views",
-      namespace: "$",
-      // type: OutputType.TS_JSX,
-      type: OutputType.TS_HTML,
-    },
-    {
-      dir: "src/server/views",
-      // type: OutputType.RS_MACRO,
-      type: OutputType.RS_HTML,
-    },
-  ],
-);
-
 async function buildJsx() {
   console.log(styleText("blue", "===== build jsx ====="));
-  await parser.parse();
+  await parse("views/templates", [
+    {
+      namespace: "$",
+      attachOriginal: true,
+      dir: "src/client/views",
+      ext: ".ts",
+    },
+    {
+      attachOriginal: true,
+      dir: "src/server/views",
+      ext: ".rs",
+    },
+  ]);
   console.log();
 }
 

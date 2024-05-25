@@ -1,7 +1,7 @@
 // AUTO GENERATED
 pub struct PostItemPost {
-    id: i32,
-    title: String,
+    pub id: i32,
+    pub title: String,
 }
 
 pub fn post_item(post: PostItemPost) -> String {

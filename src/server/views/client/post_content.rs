@@ -1,7 +1,7 @@
 // AUTO GENERATED
 pub struct PostContentPost {
-    title: String,
-    body: String,
+    pub title: String,
+    pub body: String,
 }
 
 pub fn post_content(post: PostContentPost) -> String {

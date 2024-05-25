@@ -1,5 +1,4 @@
 pub mod client;
-pub mod tiny_tsx_macros;
 
 mod counter;
 mod doc;

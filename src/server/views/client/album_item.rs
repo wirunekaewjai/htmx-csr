@@ -1,6 +1,6 @@
 // AUTO GENERATED
 pub struct AlbumItemAlbum {
-    title: String,
+    pub title: String,
 }
 
 pub fn album_item(album: AlbumItemAlbum) -> String {
