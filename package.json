@@ -12,7 +12,7 @@
   "devDependencies": {
     "@types/bun": "latest",
     "@wirunekaewjai/ts": "github:wirunekaewjai/ts#64219e96305c70e85ce733fa7473c93fd2ac1293",
-    "@wirunekaewjai/tiny-tsx": "github:wirunekaewjai/tiny-tsx#a1cbd4746d6abe7610977185dcda568f301e1d72",
+    "@wirunekaewjai/tiny-tsx": "github:wirunekaewjai/tiny-tsx#69d148bd3c54718eba1679cd26406ef6d669f885",
     "tailwindcss": "^3.4.3"
   },
   "peerDependencies": {

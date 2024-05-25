@@ -1,13 +1,32 @@
 // AUTO GENERATED
-export const $post_list = (content: string) => `<div class="space-y-2 divide-y" hx-boost="true">${content}</div>`;
+import { render_array } from "@wirunekaewjai/tiny-tsx/macro";
+
+export interface PostListPost {
+  id: number;
+  title: string;
+}
+
+export const $post_list = (posts: PostListPost[]) => `<div class="space-y-2 divide-y" hx-boost="true">${render_array(posts, (post) => `<a class="block p-2 hover:text-blue-400" href="/posts/${post.id}">${post.title}</a>`)}</div>`;
 
 /*
-(content: string) => (
+interface Post {
+  id: i32;
+  title: string;
+}
+
+(posts: Post[]) => (
   <div
     class="space-y-2 divide-y"
     hx-boost="true"
   >
-    {content}
+    {map(posts, (post) => (
+      <a
+        class="block p-2 hover:text-blue-400"
+        href={`/posts/${post.id}`}
+      >
+        {post.title}
+      </a>
+    ))}
   </div>
 );
 */
