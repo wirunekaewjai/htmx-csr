@@ -17,8 +17,5 @@
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
-  },
-  "dependencies": {
-    "htmx.org": "^1.9.12"
   }
 }
